@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+// okay na siguro tangalin ung ibang _db.java maliban dito
 
 public class Chief_db {
     

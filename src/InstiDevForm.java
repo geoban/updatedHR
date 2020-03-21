@@ -374,7 +374,7 @@ public class InstiDevForm extends javax.swing.JFrame {
         String password = String.valueOf(jPasswordField_password.getPassword());
         
         //create a select quesry to check if the username and the password exist in db
-        String query = "SELECT * FROM `user` WHERE `idNumbers` = ? AND `password` = ?";
+        String query = "SELECT * FROM `insti_table` WHERE `idNumbers` = ? AND `password` = ?";
         
         try {
             ps = Chief_db.getConnection().prepareStatement(query);

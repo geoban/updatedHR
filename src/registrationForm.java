@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+// okay na siguro kahit tangalin na ung ibang registration form maliban dito
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,7 +31,7 @@ public class registrationForm extends javax.swing.JFrame {
     // 9 = publics
     // 10 = finance
     // 11 = security
-
+//comment
     public Integer formNumber = 0;
     
     private static String chief = "chief_table";

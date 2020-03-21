@@ -367,7 +367,7 @@ public class Administrative_division_Form extends javax.swing.JFrame {
         String password = String.valueOf(jPasswordField_password.getPassword());
         
         //create a select quesry to check if the username and the password exist in db
-        String query = "SELECT * FROM `chief_table` WHERE `idNumbers` = ? AND `password` = ?";
+        String query = "SELECT * FROM `admin_table` WHERE `idNumbers` = ? AND `password` = ?";
         
         try {
             //ps = admin_db.getConnection().prepareStatement(query);
