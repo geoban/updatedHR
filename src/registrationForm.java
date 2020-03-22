@@ -4,6 +4,9 @@ import javax.swing.ButtonGroup;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -125,6 +128,7 @@ public class registrationForm extends javax.swing.JFrame {
         jTextField_fname.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jTextField_fname.setForeground(new java.awt.Color(102, 102, 102));
         jTextField_fname.setText("First Name");
+        jTextField_fname.setToolTipText("");
         jTextField_fname.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField_fnameFocusGained(evt);
@@ -156,6 +160,7 @@ public class registrationForm extends javax.swing.JFrame {
             }
         });
 
+        jDateChooser_birthdate.setToolTipText("Drop Down Date");
         jDateChooser_birthdate.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
@@ -534,15 +539,14 @@ public class registrationForm extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
                                     .addComponent(jTextField_id, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
-                                            .addComponent(jPasswordField_confirmpword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton_show1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
-                                            .addComponent(jPasswordField_password, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton_show)))
+                                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                        .addComponent(jPasswordField_confirmpword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton_show1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                        .addComponent(jPasswordField_password, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton_show))
                                     .addComponent(jTextField_position)
                                     .addComponent(jTextField_unit)))
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
@@ -626,26 +630,69 @@ public class registrationForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //gathering data
+        String birthdate="";
+        
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String firstname = jTextField_fname.getText();
         String lastname  = jTextField_lname.getText();
-        String birthdate = jDateChooser_birthdate.getDateFormatString();
-        String gender = "Male";
+        
+        if(jDateChooser_birthdate.getDate() == null){
+        birthdate = "";
+        }
+        else{
+        birthdate = df.format( jDateChooser_birthdate.getDate());
+        }
+        
+        String gender = "";
                 if (jRadioButton_female.isSelected()){
                     gender = "Female";
+                     
                 }
+                else if(jRadioButton_male.isSelected()){
+                     gender = "Male";
+                       
+                }
+                else{
+                     gender = "";
+                }
+                
         String address = jTextField_address.getText();
-        String contact = jTextField_contact.getText();
+        int number,number2;
+        //number = Integer.parseInt("asldkfj");
+        
+        try{
+        number = Integer.parseInt(jTextField_contact.getText());
+        
+        }catch(NumberFormatException e){
+            
+            JOptionPane.showMessageDialog(null, "contact should be a number", "Empty Field", 2);
+         
+        } 
+         try{
+        number2 = Integer.parseInt(jTextField_ssnumber.getText());
+        
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "sss should be a number", "Empty Field", 2);
+        } 
+        
+        String contact = jTextField_contact.getText();   //should be a number 
+        String ssnumber = jTextField_ssnumber.getText(); //should be a number
+        
+        
         String fatherfname = jTextField_fatherfname.getText();
         String fatherlname = jTextField_fatherlname.getText();
         String motherfname = jTextField_motherfname.getText();
         String motherlname = jTextField_motherlname.getText();
-        String ssnumber = jTextField_ssnumber.getText();
+       
         String tax = jTextField_tax.getText();
         String position = jTextField_position.getText();
         String unit = jTextField_unit.getText();
         String id = jTextField_id.getText();
         String password = String.valueOf(jPasswordField_password.getPassword());
         String confirm = String.valueOf(jPasswordField_confirmpword.getPassword());
+        
+        
+        
         
         //verify fields
         if(verifyFields())
@@ -654,7 +701,7 @@ public class registrationForm extends javax.swing.JFrame {
             {
             PreparedStatement ps;
             ResultSet rs;
-    
+            if(formNumber != 0){
              if(formNumber == 1){
             db = chief;
              }
@@ -688,7 +735,7 @@ public class registrationForm extends javax.swing.JFrame {
              else if(formNumber == 11){
             db = security;
             }
-        
+           }
             
             
             String registrationUserQuery = "INSERT INTO "+db+"(`FirstName`, `LastName`, `BirthDate`, `Gender`, `Address`, `Contact`, `FatherFirstName`,`FatherLastName`,`MotherFirstName`, `MotherLastName`, `SssNumber`, `Tax`,`Position`, `UnitDivision`, `idNumbers`, `Password`, `ConfirmPassword`) "
@@ -999,7 +1046,7 @@ public class registrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_minimizeMouseExited
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        
+        if(formNumber != 0){
         if(formNumber == 1){
         ChiefLoginForm lf = new ChiefLoginForm();
         lf.setVisible(true);
@@ -1086,7 +1133,7 @@ public class registrationForm extends javax.swing.JFrame {
         lf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
         }
-        
+       }
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jPasswordField_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_passwordActionPerformed
@@ -1203,13 +1250,33 @@ public class registrationForm extends javax.swing.JFrame {
 
     //function to verify empty fields
     public boolean verifyFields(){
+    
+    String birthdate = "";    
+    
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     String firstname = jTextField_fname.getText();
     String lastname = jTextField_lname.getText();
-    String birthdate = jDateChooser_birthdate.getDateFormatString();
-    String gender = "Male";
-        if (jRadioButton_female.isSelected()){
-            gender = "Female";
+    
+    
+    if(jDateChooser_birthdate.getDate() == null){
+        birthdate = "";
         }
+        else{
+        birthdate = df.format( jDateChooser_birthdate.getDate());
+        }
+     
+    String gender = "";
+                if (jRadioButton_female.isSelected()){
+                    gender = "Female";
+                     
+                }
+                else if(jRadioButton_male.isSelected()){
+                     gender = "Male";
+                       
+                }
+                else{
+                     gender = "";
+                }
     String address = jTextField_address.getText();
     String contact = jTextField_contact.getText();
     String fatherfname = jTextField_fatherfname.getText();
@@ -1224,6 +1291,13 @@ public class registrationForm extends javax.swing.JFrame {
     String password = String.valueOf(jPasswordField_password.getPassword());
     String confirmpword = String.valueOf(jPasswordField_confirmpword.getPassword());
     
+//    if(firstname == "First Name" || lastname == "Last Name" ||  birthdate == "2000-01-01" || gender == "Male" || address == "Address" || contact == "Contact Details" || fatherfname == "Father's First Name" || fatherlname == "Father's Last Name" || motherfname == "Mother's First Name" || motherlname == "Mother's Last Name" || ssnumber == "SS Number" || tax == "Tax Identification Number" || position == "Postion" || unit == "Unit / Division" || idnumber == "ID Number" || password == "" || confirmpword == "")
+//    {
+//        firstname ="";lastname =""; birthdate ="";gender ="";address ="";contact ="";fatherfname ="";fatherlname ="";motherfname ="";motherlname ="";ssnumber ="";tax ="";position ="";unit ="";idnumber ="";password ="";confirmpword ="";
+//    }else{}
+    
+     
+
     // check empty fields
     if(firstname.trim().equals("") || lastname.trim().equals("") || birthdate.trim().equals("") || gender.trim().equals("") || address.trim().equals("") || contact.trim().equals("") || fatherfname.trim().equals("")
             || fatherlname.trim().equals("") || motherfname.trim().equals("") || motherlname.trim().equals("") || ssnumber.trim().equals("") || tax.trim().equals("")|| position.trim().equals("") || unit.trim().equals("") 
@@ -1250,7 +1324,7 @@ public class registrationForm extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         boolean idnumber_exist = false;
-        
+        if(formNumber != 0){
          if(formNumber == 1){
             db = chief;
              }
@@ -1284,7 +1358,7 @@ public class registrationForm extends javax.swing.JFrame {
              else if(formNumber == 11){
             db = security;
             }
-        
+        }
         String query = "SELECT * FROM "+db+" WHERE `idNumbers` = ?";
         
        

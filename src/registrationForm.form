@@ -183,6 +183,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="First Name"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_fnameFocusGained"/>
@@ -208,6 +209,7 @@
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser_birthdate">
           <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Drop Down Date"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="1"/>
             </Property>
