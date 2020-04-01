@@ -95,7 +95,7 @@ public class registrationForm extends javax.swing.JFrame {
         jTextField_tax = new javax.swing.JTextField();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jTextField_id = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButton_register = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel_exit = new javax.swing.JLabel();
         jLabel_minimize = new javax.swing.JLabel();
@@ -387,19 +387,19 @@ public class registrationForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
-        jButton1.setText("Register");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_register.setFont(new java.awt.Font("Arial Black", 1, 13)); // NOI18N
+        jButton_register.setText("Register");
+        jButton_register.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                jButton_registerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                jButton_registerMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_registerActionPerformed(evt);
             }
         });
 
@@ -551,7 +551,7 @@ public class registrationForm extends javax.swing.JFrame {
                                     .addComponent(jTextField_unit)))
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addGap(187, 187, 187)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton_register, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addGap(102, 102, 102)
                                 .addComponent(jLabel4)))
@@ -584,7 +584,7 @@ public class registrationForm extends javax.swing.JFrame {
                     .addComponent(jButton_show1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(jPasswordField_confirmpword))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_register, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addContainerGap())
@@ -628,7 +628,7 @@ public class registrationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_idActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registerActionPerformed
         //gathering data
         String birthdate="";
         
@@ -778,7 +778,7 @@ public class registrationForm extends javax.swing.JFrame {
         }
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_registerActionPerformed
 
     private void jTextField_fnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_fnameFocusGained
         // clear the textfield if its equal to "First Name"
@@ -1201,13 +1201,13 @@ public class registrationForm extends javax.swing.JFrame {
         jButton_show.setBackground(Color.white);
     }//GEN-LAST:event_jButton_showMouseExited
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setBackground(Color.darkGray);
-    }//GEN-LAST:event_jButton1MouseEntered
+    private void jButton_registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_registerMouseEntered
+        jButton_register.setBackground(Color.darkGray);
+    }//GEN-LAST:event_jButton_registerMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(Color.white);
-    }//GEN-LAST:event_jButton1MouseExited
+    private void jButton_registerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_registerMouseExited
+        jButton_register.setBackground(Color.white);
+    }//GEN-LAST:event_jButton_registerMouseExited
 
     private void jTextField_positionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_positionFocusGained
         // clear the textfield if its equal to "Position"
@@ -1420,7 +1420,7 @@ public class registrationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_register;
     private javax.swing.JButton jButton_show;
     private javax.swing.JButton jButton_show1;
     private com.toedter.calendar.JDateChooser jDateChooser_birthdate;

@@ -1,12 +1,7 @@
 
-import java.awt.Color;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 
 
 /**
@@ -260,7 +255,7 @@ public class MainUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -275,7 +270,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_CompensatoryFormMouseClicked
 
     private void jMenuItem_dayoffFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_dayoffFormActionPerformed
-        dayoffForm rf = new dayoffForm();
+        dayoffForm1 rf = new dayoffForm1();
         rf.setVisible(true);
         rf.pack();
         rf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -283,7 +278,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_dayoffFormActionPerformed
 
     private void jMenuItem_absentFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_absentFormActionPerformed
-        absentForm rf = new absentForm();
+        AbsentForm1 rf = new AbsentForm1();
         rf.setVisible(true);
         rf.pack();
         rf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -315,7 +310,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu10MenuKeyPressed
 
     private void jMenuItem_CompensatoryFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CompensatoryFormActionPerformed
-        compensatoryForm rf = new compensatoryForm();
+        CompensatoryForm1 rf = new CompensatoryForm1();
         rf.setVisible(true);
         rf.pack();
         rf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -323,7 +318,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_CompensatoryFormActionPerformed
 
     private void jMenuItem_travelPassFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_travelPassFormActionPerformed
-        travelPassForm rf = new travelPassForm();
+        travelPassform1 rf = new travelPassform1();
         rf.setVisible(true);
         rf.pack();
         rf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
