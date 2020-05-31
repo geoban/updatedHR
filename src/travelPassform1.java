@@ -16,6 +16,11 @@ public class travelPassform1 extends javax.swing.JFrame {
     public travelPassform1() {
         initComponents();
         this.setResizable(false);
+        
+        //get the value in the database
+        jLabel_name.setText(String.valueOf(Name.firstName +" "+ Name.lastName));
+        jLabel_position.setText(String.valueOf(Name.position));
+        jLabel_unit.setText(String.valueOf(Name.unit));
     }
 
     /**
@@ -48,6 +53,9 @@ public class travelPassform1 extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel_name = new javax.swing.JLabel();
+        jLabel_position = new javax.swing.JLabel();
+        jLabel_unit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -122,6 +130,12 @@ public class travelPassform1 extends javax.swing.JFrame {
 
         jLabel17.setText("jLabel17");
 
+        jLabel_name.setText("name");
+
+        jLabel_position.setText("position");
+
+        jLabel_unit.setText("unit");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,8 +151,14 @@ public class travelPassform1 extends javax.swing.JFrame {
                                         .addComponent(jLabel2)
                                         .addGap(253, 253, 253)
                                         .addComponent(jLabel1))
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(jLabel_name))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel_position)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,16 +170,18 @@ public class travelPassform1 extends javax.swing.JFrame {
                                 .addGap(348, 348, 348)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(151, 151, 151)
-                                        .addComponent(jLabel10))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel9)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel5)
                                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(48, 48, 48)
-                                        .addComponent(jLabel17))))
+                                        .addComponent(jLabel17))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(151, 151, 151)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel_unit))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(408, 408, 408)
                                 .addComponent(jButton1))
@@ -168,7 +190,7 @@ public class travelPassform1 extends javax.swing.JFrame {
                                 .addComponent(jLabel11)
                                 .addGap(322, 322, 322)
                                 .addComponent(jLabel12)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 204, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(143, 143, 143)
@@ -201,11 +223,14 @@ public class travelPassform1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel_position)
+                    .addComponent(jLabel_unit))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -293,6 +318,9 @@ public class travelPassform1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_name;
+    private javax.swing.JLabel jLabel_position;
+    private javax.swing.JLabel jLabel_unit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;

@@ -1,3 +1,12 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,13 +18,69 @@
  * @author ideapad 520
  */
 public class masterList extends javax.swing.JFrame {
-
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    
+    Connection conn = Chief_db.getConnection();
     /**
      * Creates new form masterList
      */
     public masterList() {
         initComponents();
+        
+        
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        show_user();
     }
+    
+        public ArrayList<user> userList(){
+            ArrayList<user> userList = new ArrayList<>();
+            
+            try{
+                String query = "SELECT * FROM chief_table ";
+                Statement st = conn.createStatement();
+                rs = st.executeQuery(query);
+                user user;
+                while(rs.next()){
+                    user = new user(rs.getInt("idNumbers"), rs.getInt("SssNumber"), rs.getString("Tax"), rs.getInt("Contact"), 
+                            rs.getString("FirstName"), rs.getString("LastName"), rs.getString("Gender"), rs.getString("Address"), rs.getString("Position"), rs.getString("UnitDivision"), rs.getString("BirthDate"));
+                    
+                    userList.add(user);
+                }
+                
+                
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            return userList;
+        }
+        
+        
+        public void show_user(){
+            ArrayList<user> list = userList();
+            DefaultTableModel model = (DefaultTableModel)jTable.getModel();
+            
+            Object[] row = new Object[11];
+            for(int i = 0 ; i < list.size(); i++){
+                row[0] = list.get(i).getID_Number();
+                row[1] = list.get(i).getFirstName();
+                row[2] = list.get(i).getLastName();
+                row[3] = list.get(i).getBirthDate();
+                row[4] = list.get(i).getGender();
+                row[5] = list.get(i).getAddress();
+                row[6] = list.get(i).getContact_Number();
+                row[7] = list.get(i).getSSS_Number();
+                row[8] = list.get(i).getTax_ID();
+                row[9] = list.get(i).getPosition();
+                row[10] = list.get(i).getUnit();
+                model.addRow(row);
+            }
+            
+            
+            
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,6 +92,11 @@ public class masterList extends javax.swing.JFrame {
     private void initComponents() {
 
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        jButton_search = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLabel_close = new javax.swing.JLabel();
+        jLabel_back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,15 +104,65 @@ public class masterList extends javax.swing.JFrame {
         kGradientPanel1.setkGradientFocus(1);
         kGradientPanel1.setkStartColor(new java.awt.Color(102, 204, 255));
 
+        jButton_search.setText("Search");
+        jButton_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_searchActionPerformed(evt);
+            }
+        });
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Number", "First Name", "Last Name", "Birth Date", "Gender", "Address", "Contact", "SSS Number", "Tax ID", "Position", "Unit / Division"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable);
+
+        jLabel_close.setText("X");
+        jLabel_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_closeMouseClicked(evt);
+            }
+        });
+
+        jLabel_back.setText("←");
+        jLabel_back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_backMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1342, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1577, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton_search)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel_back)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_close)))
+                .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 693, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_search)
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel_close)
+                        .addComponent(jLabel_back)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -58,6 +178,23 @@ public class masterList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
+        searchPanel sp = new searchPanel();
+        sp.setVisible(true);
+    }//GEN-LAST:event_jButton_searchActionPerformed
+
+    private void jLabel_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel_closeMouseClicked
+
+    private void jLabel_backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_backMouseClicked
+        ChiefUI mui = new ChiefUI();
+        mui.setVisible(true);
+        mui.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.dispose();
+        mui.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jLabel_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -95,6 +232,11 @@ public class masterList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_search;
+    private javax.swing.JLabel jLabel_back;
+    private javax.swing.JLabel jLabel_close;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }

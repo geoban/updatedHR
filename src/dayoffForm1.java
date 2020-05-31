@@ -18,6 +18,11 @@ public class dayoffForm1 extends javax.swing.JFrame {
      */
     public dayoffForm1() {
         initComponents();
+        
+        //get the value in the database
+        jLabel_name.setText(String.valueOf(Name.firstName +" "+ Name.lastName));
+        jLabel_position.setText(String.valueOf(Name.position));
+        jLabel_unit.setText(String.valueOf(Name.unit));
     }
 
     /**
@@ -44,9 +49,9 @@ public class dayoffForm1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel_name = new javax.swing.JLabel();
+        jLabel_position = new javax.swing.JLabel();
+        jLabel_unit = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -182,11 +187,11 @@ public class dayoffForm1 extends javax.swing.JFrame {
 
         jLabel21.setText("Date and Time");
 
-        jLabel22.setText("get the name from the login user");
+        jLabel_name.setText("get the name from the login user");
 
-        jLabel23.setText("get the data from login user");
+        jLabel_position.setText("get the data from login user");
 
-        jLabel24.setText("get the data from login user");
+        jLabel_unit.setText("get the data from login user");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -197,17 +202,17 @@ public class dayoffForm1 extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23))
+                        .addComponent(jLabel_position))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22)))
+                        .addComponent(jLabel_name)))
                 .addGap(58, 58, 58)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel24)
+                        .addComponent(jLabel_unit)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -222,13 +227,13 @@ public class dayoffForm1 extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
                     .addComponent(jLabel21)
-                    .addComponent(jLabel22))
+                    .addComponent(jLabel_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24))
+                    .addComponent(jLabel_position)
+                    .addComponent(jLabel_unit))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
@@ -546,7 +551,7 @@ public class dayoffForm1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-        MainUI ui = new MainUI();
+        ChiefUI ui = new ChiefUI();
         ui.setVisible(true);
         ui.pack();
         ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -615,9 +620,6 @@ public class dayoffForm1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -628,6 +630,9 @@ public class dayoffForm1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_name;
+    private javax.swing.JLabel jLabel_position;
+    private javax.swing.JLabel jLabel_unit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

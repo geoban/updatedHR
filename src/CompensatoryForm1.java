@@ -32,6 +32,11 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
         ButtonGroup bg1 = new ButtonGroup();
         bg1.add(jCheckBox3);
         bg1.add(jCheckBox4);
+        
+        //get the value in the database
+        jLabel_name.setText(String.valueOf(Name.firstName +" "+ Name.lastName));
+        jLabel_position.setText(String.valueOf(Name.position));
+        jLabel_unit.setText(String.valueOf(Name.unit));
     }
     
     //DATE AND TIME
@@ -92,6 +97,9 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel_dateandtime = new javax.swing.JLabel();
+        jLabel_name = new javax.swing.JLabel();
+        jLabel_position = new javax.swing.JLabel();
+        jLabel_unit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +208,12 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
 
         jLabel_dateandtime.setText("Date&Time");
 
+        jLabel_name.setText("name");
+
+        jLabel_position.setText("position");
+
+        jLabel_unit.setText("unit");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -212,11 +226,21 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(311, 311, 311)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel_position, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel_name, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel_unit)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -313,11 +337,14 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel_dateandtime))
+                    .addComponent(jLabel_dateandtime)
+                    .addComponent(jLabel_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel_position)
+                    .addComponent(jLabel_unit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -388,7 +415,7 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       MainUI ui = new MainUI();
+       ChiefUI ui = new ChiefUI();
        ui.setVisible(true);
        ui.pack();
        ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -479,6 +506,9 @@ public class CompensatoryForm1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_dateandtime;
+    private javax.swing.JLabel jLabel_name;
+    private javax.swing.JLabel jLabel_position;
+    private javax.swing.JLabel jLabel_unit;
     private javax.swing.JPanel jPanel1;
     private com.toedter.components.JSpinField jSpinField1;
     private javax.swing.JTextField jTextField1;
